@@ -3,6 +3,7 @@ project(libdatachannel
 	VERSION 0.22.5
 	LANGUAGES CXX)
 set(PROJECT_DESCRIPTION "C/C++ WebRTC network library featuring Data Channels, Media Transport, and WebSockets")
+set(CMAKE_BUILD_TYPE Debug)  # debug mode
 
 include(GNUInstallDirs)
 
