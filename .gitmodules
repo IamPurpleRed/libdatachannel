@@ -16,5 +16,4 @@
 	shallow = true
 [submodule "deps/libjuice"]
 	path = deps/libjuice
-	url = git@github.com:IamPurpleRed/libjuice.git
-	branch = purplered
+	url = https://github.com/IamPurpleRed/libjuice.git
