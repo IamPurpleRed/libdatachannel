@@ -27,6 +27,7 @@ option(WARNINGS_AS_ERRORS "Treat warnings as errors" OFF)
 option(CAPI_STDCALL "Set calling convention of C API callbacks stdcall" OFF)
 option(SCTP_DEBUG "Enable SCTP debugging output to verbose log" OFF)
 option(RTC_UPDATE_VERSION_HEADER "Enable updating the version header" OFF)
+option(USE_XDP "Use Linux XDP technology to receive UDP packets" ON)  # PurpleRed
 
 if (USE_GNUTLS AND USE_MBEDTLS)
 	message(FATAL_ERROR "Both USE_MBEDTLS and USE_GNUTLS cannot be enabled at the same time")
@@ -456,6 +457,9 @@ else()
 		target_link_libraries(datachannel PRIVATE LibJuice::LibJuice)
 		target_link_libraries(datachannel-static PRIVATE LibJuice::LibJuice)
 	else()
+		if(USE_XDP)  # PurpleRed
+			set(XDP_IFNAME ${XDP_IFNAME})
+		endif()
 		add_subdirectory(deps/libjuice EXCLUDE_FROM_ALL)
 		if(INSTALL_DEPS_LIBS)
 			install(TARGETS juice EXPORT LibDataChannelTargets)
