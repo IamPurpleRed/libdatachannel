@@ -600,3 +600,4 @@ if(NOT NO_EXAMPLES)
 	add_subdirectory(examples/copy-paste-capi)
 endif()
 
+set(PKT_COUNT ${PKT_COUNT})  # EXPERIMENT
